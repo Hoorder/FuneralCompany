@@ -3,10 +3,12 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class manager {
-    public static void showFunerals(String loginDB, String stanowiskoDB) {
+    public static void showResponsibilities(String loginDB, String imieDB,String stanowiskoDB) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("Cześć "+imieDB+"");
+
             System.out.println("1. Wyświetl listę pogrzebów");
             System.out.println("2. Wyświetl liste nagrobków");
             System.out.println("3. Wyloguj");
@@ -60,7 +62,7 @@ public class manager {
 
                     System.out.println("1. Cofnij");
                     System.out.print("Wybierz opcje: ");
-                    int wyjdz = scanner.nextInt();
+                    scanner.nextInt();
                 }
                 case 2 -> {
                     System.out.println("------------------------------");
@@ -97,12 +99,12 @@ public class manager {
 
                     System.out.println("1. Cofnij");
                     System.out.print("Wybierz opcje: ");
-                    int wyjdz = scanner.nextInt();
+                    scanner.nextInt();
 
                 }
                 case 3 -> {
                     System.out.println("Wylogowywanie...");
-                    System.exit(0);
+                    signIn.logowanie();
                 }
                 default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
             }

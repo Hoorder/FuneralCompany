@@ -15,7 +15,6 @@ public class mysqlConnect {
 
         try {
             connection = DriverManager.getConnection(URL, user, pass);
-//            System.out.println("Połaczono SIEMA");
         }
         catch (SQLException e) {
             e.printStackTrace();

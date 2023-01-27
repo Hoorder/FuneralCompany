@@ -26,26 +26,21 @@ public class signIn {
 
                 if (login.equals(loginDB) && haslo.equals(hasloDB)) {
                     switch (stanowiskoDB) {
-                        case "szef" -> {
-                            System.out.println("Dzień dobry "+imieDB+"");
-                            break;
-                        }
 
-                        case "kierownik" -> {
-                            manager.showResponsibilities(loginDB, imieDB, stanowiskoDB);
-                            break;
-                        }
+                        case "szef" -> ceo.showResponsibilities(loginDB, imieDB, stanowiskoDB);
 
-                        case "pracownik" -> {
-                            worker.showResponsibilities(loginDB, imieDB, stanowiskoDB);
-                            break;
-                        }
+                        case "kierownik" -> manager.showResponsibilities(loginDB, imieDB, stanowiskoDB);
+
+                        case "pracownik" -> worker.showResponsibilities(loginDB, imieDB, stanowiskoDB);
+
                     }
                 } else {
                     System.out.println("Niepoprawne hasło");
+                    logowanie();
                 }
             } else {
                 System.out.println("Niepoprawny login lub hasło");
+                logowanie();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

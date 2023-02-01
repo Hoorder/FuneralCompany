@@ -30,7 +30,18 @@ Po zalogowaniu szefa:
             - Cena
 
         2. Dodaj obsługę do pogrzebu
-           _Wyswietla sie wersja krótsza zleceń_ - Wprowadz id. Pogrzebu - Pracownik odpowiedzialny oraz kierowca: - Żałobnik 1: - Żałobnik 2: - Żałobnik 3: - Żałobnik 4: - Żałobnik 5: - Żałobnik 6: - Żałobnik 7:
+
+            - Wyswietla sie wersja krótsza zleceń
+
+            - Wprowadz id. Pogrzebu
+            - Pracownik odpowiedzialny oraz kierowca
+            - Żałobnik 1:
+            - Żałobnik 2:
+            - Żałobnik 3:
+            - Żałobnik 4:
+            - Żałobnik 5:
+            - Żałobnik 6:
+            - Żałobnik 7:
 
         3. Sprawdź listę zleceń (wersja krótsza)
 
@@ -46,8 +57,8 @@ Po zalogowaniu szefa:
         4. Sprawdz listę zleceń (wersja pełna)
             - Wszystkie dane
         5. Usuń zlecenie
-           _Wyswietla wersję krótszą zleceń_
 
+            - Wyswietla wersję krótszą zleceń
             - Usun zlecenie o id:
 
         6. Zarządzaj pracownikami
@@ -67,49 +78,69 @@ Po zalogowaniu szefa:
             - Zmień Hasło
 
 -   2. Usługi Kamieniarskie
-    1. Dodaj Usługę
 
-        - Kierownik prac
-        - Imie nazwisko klienta
-        - Do pogrzebu o id: (brak/tak)
-        - Miejscowość
-        - Data oddania
-        - Nazwa kamienia
-        - Styl nagrobka
-        - Piwniczka (tak/nie)
-        - Na ile osób
-        - Liternik (tak/nie)
-        - Imię nazwisko denata
-        - cena
+        1. Dodaj Usługę
 
-    1. Sprawdź listę zleceń (wersja krótsza)
+            - Kierownik prac
+            - Imie nazwisko klienta
+            - Do pogrzebu o id: (brak/tak)
+            - Miejscowość
+            - Data oddania
+            - Nazwa kamienia
+            - Styl nagrobka
+            - Piwniczka (tak/nie)
+            - Na ile osób
+            - Liternik (tak/nie)
+            - Imię nazwisko denata
+            - cena
 
-        - Kierownik prac
-        - Imię nazwisko zleceniodawcy
-        - Imię nazwisko denata
-        - Data oddania
-        - Miejscowość
-        - Nazwa kamienia
-        - Styl nagobka
-        - Piwniczka
-        - Ilosc osób
+        2. Sprawdź listę zleceń (wersja krótsza)
 
-    1. Sprawdź listę zleceń (wersja pełna)
+            - Kierownik prac
+            - Imię nazwisko zleceniodawcy
+            - Imię nazwisko denata
+            - Data oddania
+            - Miejscowość
+            - Nazwa kamienia
+            - Styl nagobka
+            - Piwniczka
+            - Ilosc osób
 
-        - Wszystkie dane
+        3. Sprawdź listę zleceń (wersja pełna)
 
-    1. Usuń zlecenie
-       _Wyswietla wersję krótszą zleceń_ - Usun zlecenie o id:
+            - Wszystkie dane
 
-Po zalogowaniu kierownika: 1. Wyświetl listę pogrzebów - Id zlecenia - Data i godzina - Miejscowość - Skład - Jaka trumna/urna - Jaki karawan - Krzyz - Tabliczka - Kwiaty
+        4. Usuń zlecenie
 
-    2. Wyświetl liste nagrobków
-         - id zlecenia
-         - Miejscowość
-         - Data oddania
-         - Nazwa kamienia
-         - Styl nagrobka
-         - Piwniczka (tak/nie)
-         - Na ile osób
+            - Wyswietla wersję krótszą zleceń
+            - Usun zlecenie o id:
 
-Po zalogowaniu pracownika 1. Wyświetl obsługi - Miejscowość - Data i godzina - Kierownik zarządzający
+-   Po zalogowaniu kierownika:
+
+        1. Wyświetl listę pogrzebów
+
+            - Id zlecenia
+            - Data i godzina
+            - Miejscowość
+            - Skład
+            - Jaka trumna/urna
+            - Jaki karawan
+            - Krzyz
+            - Tabliczka
+            - Kwiaty
+
+        2. Wyświetl liste nagrobków
+            - id zlecenia
+            - Miejscowość
+            - Data oddania
+            - Nazwa kamienia
+            - Styl nagrobka
+            - Piwniczka (tak/nie)
+            - Na ile osób
+
+-   Po zalogowaniu pracownika:
+
+        1. Wyświetl obsługi
+            - Miejscowość
+            - Data i godzina
+            - Kierownik zarządzający

@@ -16,9 +16,10 @@ public class ceo {
             System.out.println("-- Wybierz dział --");
             System.out.println("1. Usługi pogrzebowe");
             System.out.println("2. Usługi kamieniarskie");
-            System.out.println("3. Ustawienia");
+            System.out.println("3. Zarządzaj pracownikami");
+            System.out.println("4. Ustawienia");
             System.out.println();
-            System.out.println("4. Wyloguj");
+            System.out.println("5. Wyloguj");
             System.out.println();
             System.out.print("Wybierz opcje: ");
 
@@ -29,7 +30,7 @@ public class ceo {
                 case 2 -> stoneMasnoryServices(loginDB, imieDB, stanowiskoDB);
                 case 3 -> {
                     System.out.println("-----------------------");
-                    System.out.println("- Ustawienia -");
+                    System.out.println("- Zarządzaj pracownikami -");
                     System.out.println("-----------------------");
 
                     System.out.println("1. Wróć");
@@ -37,6 +38,15 @@ public class ceo {
                     scanner.nextInt();
                 }
                 case 4 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Ustawienia -");
+                    System.out.println("-----------------------");
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 5 -> {
                     System.out.println("Wylogowywanie...");
                     signIn.logowanie();
                 }
@@ -57,9 +67,8 @@ public class ceo {
             System.out.println("3. Aktywne zlecenia");
             System.out.println("4. Wszystkie zlecenia");
             System.out.println("5. Usuń zlecenie");
-            System.out.println("6. Zarządzaj pracownikami");
             System.out.println(" ");
-            System.out.println("7. Wróć");
+            System.out.println("6. Wróć");
 
             System.out.print("Wybierz opcje: ");
 
@@ -71,7 +80,7 @@ public class ceo {
                     System.out.println("- Dodaj pogrzeb -");
                     System.out.println("-----------------------");
 
-                    ceoFuneralServices.addFuneral(loginDB,imieDB,stanowiskoDB);
+                    ceoFuneralServices.addFuneral();
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -82,6 +91,8 @@ public class ceo {
                     System.out.println("- Dodaj obsługę -");
                     System.out.println("-----------------------");
 
+                    ceoFuneralServices.addFuneralDirectors(stanowiskoDB);
+
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
@@ -90,6 +101,8 @@ public class ceo {
                     System.out.println("-----------------------");
                     System.out.println("- Aktywne zlecenia -");
                     System.out.println("-----------------------");
+
+                    ceoFuneralServices.activeOrders(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -100,6 +113,8 @@ public class ceo {
                     System.out.println("- Wszystkie zlecenia -");
                     System.out.println("-----------------------");
 
+                    ceoFuneralServices.allOrders(stanowiskoDB);
+
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
@@ -109,20 +124,13 @@ public class ceo {
                     System.out.println("- Ususń zlecenie -");
                     System.out.println("-----------------------");
 
-                    System.out.println("1. Wróć");
-                    System.out.print("Wybierz opcje: ");
-                    scanner.nextInt();
-                }
-                case 6 -> {
-                    System.out.println("-----------------------");
-                    System.out.println("- Zarządzaj pracownikami -");
-                    System.out.println("-----------------------");
+                    ceoFuneralServices.removeOrder(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
                 }
-                case 7 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
+                case 6 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
                 default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
             }
         }
@@ -162,6 +170,8 @@ public class ceo {
                     System.out.println("- Aktywne zlecenia -");
                     System.out.println("-----------------------");
 
+                    ceoStoneServices.activeOrders(loginDB, imieDB, stanowiskoDB);
+
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
@@ -171,6 +181,8 @@ public class ceo {
                     System.out.println("- Wszystkie zlecenia -");
                     System.out.println("-----------------------");
 
+                    ceoStoneServices.allOrders(loginDB, imieDB, stanowiskoDB);
+
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
@@ -179,6 +191,8 @@ public class ceo {
                     System.out.println("-----------------------");
                     System.out.println("- Ususń zlecenie -");
                     System.out.println("-----------------------");
+
+                    ceoStoneServices.removeOrder(loginDB, imieDB, stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");

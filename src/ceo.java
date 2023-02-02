@@ -62,13 +62,17 @@ public class ceo {
             System.out.println("-----------------------");
             System.out.println("-- Co chcesz zrobić --");
             System.out.println("-----------------------");
+            ceoFuneralServices.numberOfFunerals(stanowiskoDB);
+            System.out.println("-----");
             System.out.println("1. Dodaj pogrzeb");
             System.out.println("2. Dodaj obsługę do pogrzebu");
             System.out.println("3. Aktywne zlecenia");
             System.out.println("4. Wszystkie zlecenia");
-            System.out.println("5. Usuń zlecenie");
+            System.out.println("5. Usuń pogrzeb");
+            System.out.println("6. Usuń obsługę");
+            System.out.println("7. Zmień status pogrzebu");
             System.out.println(" ");
-            System.out.println("6. Wróć");
+            System.out.println("8. Wróć");
 
             System.out.print("Wybierz opcje: ");
 
@@ -130,7 +134,29 @@ public class ceo {
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
                 }
-                case 6 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
+                case 6 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Ususń Obsługę -");
+                    System.out.println("-----------------------");
+
+                    ceoFuneralServices.removeFuneralDirectors(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 7 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Zmień status pogrzebu -");
+                    System.out.println("-----------------------");
+
+                    ceoFuneralServices.changeStatus(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 8 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
                 default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
             }
         }
@@ -142,12 +168,16 @@ public class ceo {
             System.out.println("-----------------------");
             System.out.println("-- Co chcesz zrobić --");
             System.out.println("-----------------------");
+            ceoStoneServices.numberOfOrders(stanowiskoDB);
+            System.out.println("-----");
             System.out.println("1. Dodaj zlecenie");
             System.out.println("2. Aktywne zlecenia");
             System.out.println("3. Wszystkie zlecenia");
             System.out.println("4. Usuń zlecenie");
+            System.out.println("5. Zmień status zlecenia");
+            // zmien status zlecenia
             System.out.println(" ");
-            System.out.println("5. Wróć");
+            System.out.println("6. Wróć");
 
             System.out.print("Wybierz opcje: ");
 
@@ -159,7 +189,7 @@ public class ceo {
                     System.out.println("- Dodaj zlecenie -");
                     System.out.println("-----------------------");
 
-                    ceoStoneServices.addOrder(loginDB, imieDB, stanowiskoDB);
+                    ceoStoneServices.addOrder(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -170,7 +200,7 @@ public class ceo {
                     System.out.println("- Aktywne zlecenia -");
                     System.out.println("-----------------------");
 
-                    ceoStoneServices.activeOrders(loginDB, imieDB, stanowiskoDB);
+                    ceoStoneServices.activeOrders(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -181,7 +211,7 @@ public class ceo {
                     System.out.println("- Wszystkie zlecenia -");
                     System.out.println("-----------------------");
 
-                    ceoStoneServices.allOrders(loginDB, imieDB, stanowiskoDB);
+                    ceoStoneServices.allOrders(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -192,13 +222,24 @@ public class ceo {
                     System.out.println("- Ususń zlecenie -");
                     System.out.println("-----------------------");
 
-                    ceoStoneServices.removeOrder(loginDB, imieDB, stanowiskoDB);
+                    ceoStoneServices.removeOrder(stanowiskoDB);
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
                     scanner.nextInt();
                 }
-                case 5 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
+                case 5 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Zmień status zlecenia -");
+                    System.out.println("-----------------------");
+
+                    ceoStoneServices.changeStatus(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 6 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
                 default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
             }
         }

@@ -5,6 +5,27 @@ import java.util.Scanner;
 public class ceoFuneralServices {
     static Scanner scanner = new Scanner(System.in);
 
+    public static void numberOfFunerals(String stanowiskoDB) {
+        try {
+            String zapytanie = "SELECT kierownik_kierowca, COUNT(*) as ilosc_zlecen FROM obsluga JOIN pogrzeb ON obsluga.id_obslugi = pogrzeb.id_pogrzebu WHERE status_zlecenia = 'otwarte' GROUP BY kierownik_kierowca;";
+            ResultSet resultPracownik = queryExecutor.executeSelect(zapytanie);
+
+            while (resultPracownik.next()) {
+
+                String table1 = resultPracownik.getString("kierownik_kierowca");
+                String table2 = resultPracownik.getString("ilosc_zlecen");
+
+                if ("szef".equals(stanowiskoDB)) {
+                    System.out.println("Kierownik: " + table1 + " - Ilość obsług: " + table2);
+                }
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void addFuneral() {
         System.out.print("Imie nazwisko klienta: ");
         String value2 = scanner.nextLine();
@@ -56,7 +77,6 @@ public class ceoFuneralServices {
     }
 
     public static void addFuneralDirectors(String stanowiskoDB) {
-
 
         try {
             String zapytanie = "SELECT pogrzeb.id_pogrzebu, pogrzeb.ilosc_osob_na_obsludze, obsluga.kierownik_kierowca, obsluga.zalobnik_1 , obsluga.zalobnik_2, obsluga.zalobnik_3, obsluga.zalobnik_4, obsluga.zalobnik_5, obsluga.zalobnik_6, obsluga.zalobnik_7, pogrzeb.status_zlecenia FROM obsluga RIGHT JOIN pogrzeb ON obsluga.id_pogrzebu = pogrzeb.id_pogrzebu WHERE pogrzeb.status_zlecenia = 'otwarte';";
@@ -239,5 +259,31 @@ public class ceoFuneralServices {
         int funeralID = scanner.nextInt();
         String zapytanie = "DELETE FROM `pogrzeb` WHERE id_pogrzebu = "+funeralID+"";
         queryExecutor.executeQuery(zapytanie);
+    }
+
+    public static void removeFuneralDirectors(String stanowiskoDB) {
+        activeOrders(stanowiskoDB);
+
+        System.out.print("Podaj Id.Pogrzebu, którego obsługa jest do usunięcia: ");
+        int funeralID = scanner.nextInt();
+        String zapytanie = "DELETE FROM `obsluga` WHERE id_pogrzebu = "+funeralID+"";
+        queryExecutor.executeQuery(zapytanie);
+    }
+
+    public static void changeStatus(String stanowiskoDB) {
+        allOrders(stanowiskoDB);
+
+        System.out.print("Podaj id. pogrzebu: ");
+        int idPogrzebu = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Podaj nowy status (otwarte/zamknięte): ");
+        String statusPogrzebu = scanner.nextLine();
+
+        String zapytanie = "UPDATE `pogrzeb` SET `status_zlecenia`='"+statusPogrzebu+"' WHERE `id_pogrzebu` = '"+idPogrzebu+"'";
+        queryExecutor.executeQuery(zapytanie);
+
+        System.out.println(" ");
+        System.out.println("Pomyślnie zmieniono status pogrzebu");
+        System.out.println(" ");
     }
 }

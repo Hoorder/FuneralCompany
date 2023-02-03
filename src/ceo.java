@@ -17,6 +17,7 @@ public class ceo {
             System.out.println("1. Usługi pogrzebowe");
             System.out.println("2. Usługi kamieniarskie");
             System.out.println("3. Zarządzaj pracownikami");
+            //Sprawdź finanse {Wyświetla dotychczasowy obrót usług pogrzebowych i kamieniarskich}
             System.out.println("4. Ustawienia");
             System.out.println();
             System.out.println("5. Wyloguj");
@@ -28,19 +29,13 @@ public class ceo {
             switch (choice) {
                 case 1 -> funeralServices(loginDB, imieDB, stanowiskoDB);
                 case 2 -> stoneMasnoryServices(loginDB, imieDB, stanowiskoDB);
-                case 3 -> {
-                    System.out.println("-----------------------");
-                    System.out.println("- Zarządzaj pracownikami -");
-                    System.out.println("-----------------------");
-
-                    System.out.println("1. Wróć");
-                    System.out.print("Wybierz opcje: ");
-                    scanner.nextInt();
-                }
+                case 3 -> employeeManagement(loginDB, imieDB, stanowiskoDB);
                 case 4 -> {
                     System.out.println("-----------------------");
                     System.out.println("- Ustawienia -");
                     System.out.println("-----------------------");
+
+                    //Zmień hasło
 
                     System.out.println("1. Wróć");
                     System.out.print("Wybierz opcje: ");
@@ -240,6 +235,98 @@ public class ceo {
                     scanner.nextInt();
                 }
                 case 6 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
+                default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
+            }
+        }
+    }
+
+    public static void employeeManagement(String loginDB, String imieDB, String stanowiskoDB) {
+
+        while (true) {
+            System.out.println("-----------------------");
+            System.out.println("-- Co chcesz zrobić --");
+            System.out.println("-----------------------");
+            System.out.println("1. Wyświetl pracowników");
+            System.out.println("2. Dodaj Kierownika");
+            System.out.println("3. Usuń Kierownika");
+            System.out.println("4. Dodaj Pracownika");
+            System.out.println("5. Usuń Pracownika");
+            System.out.println("6. Zmień rangę");
+            System.out.println(" ");
+            System.out.println("7. Wróć");
+
+            System.out.print("Wybierz opcje: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Wszyscy pracownicy -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.showEmployees(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 2 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Dodaj Kierownika -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.addManager();
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 3 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Usuń Kierownika -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.removeManager(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 4 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Dodaj Pracownika -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.addWorker();
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 5 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Usuń Pracownika -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.removeWorker(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+
+                case 6 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Zmień rangę -");
+                    System.out.println("-----------------------");
+
+                    ceoEmployeeManagement.changeRank(stanowiskoDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 7 -> showResponsibilities(loginDB,imieDB,stanowiskoDB);
                 default -> System.out.println("Nieprawidłowy wybór. Spróbuj ponownie.");
             }
         }

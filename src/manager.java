@@ -3,7 +3,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class manager {
-    public static void showResponsibilities(String loginDB, String imieDB, String stanowiskoDB) {
+    public static void showResponsibilities(String loginDB, String hasloDB, String imieDB, String stanowiskoDB) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -11,7 +11,8 @@ public class manager {
 
             System.out.println("1. Wyświetl listę pogrzebów");
             System.out.println("2. Wyświetl liste nagrobków");
-            System.out.println("3. Wyloguj");
+            System.out.println("3. Ustawienia");
+            System.out.println("4. Wyloguj");
             System.out.print("Wybierz opcje: ");
 
             int choice = scanner.nextInt();
@@ -104,6 +105,17 @@ public class manager {
 
                 }
                 case 3 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Ustawienia -");
+                    System.out.println("-----------------------");
+
+                    settings.changePassword(loginDB, hasloDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 4 -> {
                     System.out.println("Wylogowywanie...");
                     signIn.logowanie();
                 }

@@ -3,14 +3,15 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class worker {
-    public static void showResponsibilities(String loginDB, String imieDB, String stanowiskoDB) {
+    public static void showResponsibilities(String loginDB, String hasloDB, String imieDB, String stanowiskoDB) {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Witaj "+imieDB+"");
 
             System.out.println("1. Wyświetl obsługi");
-            System.out.println("2. Wyloguj");
+            System.out.println("2. Ustawienia");
+            System.out.println("3. Wyloguj");
             System.out.print("Wybierz opcje: ");
 
             int choice = scanner.nextInt();
@@ -51,6 +52,17 @@ public class worker {
                     scanner.nextInt();
                 }
                 case 2 -> {
+                    System.out.println("-----------------------");
+                    System.out.println("- Ustawienia -");
+                    System.out.println("-----------------------");
+
+                    settings.changePassword(loginDB, hasloDB);
+
+                    System.out.println("1. Wróć");
+                    System.out.print("Wybierz opcje: ");
+                    scanner.nextInt();
+                }
+                case 3 -> {
                     System.out.println("Wylogowywanie...");
                     signIn.logowanie();
                 }

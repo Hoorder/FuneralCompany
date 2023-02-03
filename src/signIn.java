@@ -27,11 +27,11 @@ public class signIn {
                 if (login.equals(loginDB) && haslo.equals(hasloDB)) {
                     switch (stanowiskoDB) {
 
-                        case "szef" -> ceo.showResponsibilities(loginDB, imieDB, stanowiskoDB);
+                        case "szef" -> ceo.showResponsibilities(loginDB, hasloDB, imieDB, stanowiskoDB);
 
-                        case "kierownik" -> manager.showResponsibilities(loginDB, imieDB, stanowiskoDB);
+                        case "kierownik" -> manager.showResponsibilities(loginDB, hasloDB, imieDB, stanowiskoDB);
 
-                        case "pracownik" -> worker.showResponsibilities(loginDB, imieDB, stanowiskoDB);
+                        case "pracownik" -> worker.showResponsibilities(loginDB, hasloDB, imieDB, stanowiskoDB);
 
                     }
                 } else {

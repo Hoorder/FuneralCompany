@@ -40,7 +40,7 @@ public class ceoEmployeeManagement {
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie dodano kierownika");
+        System.out.println("Dodano kierownika");
         System.out.println(" ");
     };
 
@@ -74,7 +74,7 @@ public class ceoEmployeeManagement {
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie usunięto kierownika");
+        System.out.println("Usunięto kierownika");
         System.out.println(" ");
     };
 
@@ -90,7 +90,7 @@ public class ceoEmployeeManagement {
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie dodano pracownika");
+        System.out.println("Dodano pracownika");
         System.out.println(" ");
     };
 
@@ -124,7 +124,7 @@ public class ceoEmployeeManagement {
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie usunięto pracownika");
+        System.out.println("Usunięto pracownika");
         System.out.println(" ");
     };
 

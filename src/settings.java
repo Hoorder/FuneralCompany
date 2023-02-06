@@ -4,6 +4,7 @@ public class settings {
     static Scanner scanner = new Scanner(System.in);
 
     public static void changePassword(String loginDB, String hasloDB) {
+        System.out.println("-----------------------");
         System.out.println("- Zmień hasło -");
         System.out.println("-----------------------");
 
@@ -11,17 +12,24 @@ public class settings {
         String stareHaslo = scanner.nextLine();
 
         if (stareHaslo.equals(hasloDB)) {
+            System.out.println("(Hasła powinny być różne)");
             System.out.print("Podaj nowe hasło: ");
             String noweHaslo = scanner.nextLine();
 
-            String zapytanie = "UPDATE `konta` SET `haslo`='"+noweHaslo+"' WHERE login ='"+loginDB+"'";
-            queryExecutor.executeQuery(zapytanie);
+            if (!stareHaslo.equals(noweHaslo)) {
+                String zapytanie = "UPDATE `konta` SET `haslo`='"+noweHaslo+"' WHERE login ='"+loginDB+"'";
+                queryExecutor.executeQuery(zapytanie);
 
-            System.out.println(" ");
-            System.out.println("Pomyślnie dodano do Bazy Danych");
-            System.out.println("Zostaniesz wylogowany...");
-            signIn.logowanie();
-            System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("Zmieniono hasło");
+                System.out.println("Zostaniesz wylogowany...");
+                signIn.logowanie();
+                System.out.println(" ");
+            } else {
+                System.out.println("Hasła nie mogą być takie same");
+                changePassword(loginDB, hasloDB);
+            }
+
         } else {
             System.out.println("Błędne hasło, podaj nowe");
             changePassword(loginDB, hasloDB);

@@ -55,24 +55,19 @@ public class ceoFuneralServices {
         String value14 = scanner.nextLine();
         System.out.print("Karawan: ");
         String value15 = scanner.nextLine();
-        System.out.print("Krzyż: ");
-        String value16 = scanner.nextLine();
-        System.out.print("Tabliczka: ");
-        String value17 = scanner.nextLine();
-        System.out.print("Kwiaty: ");
-        String value18 = scanner.nextLine();
-        System.out.print("Przygotowanie zasiłku: ");
-        String value19 = scanner.nextLine();
+        String value16 = verification.trueFalse("Krzyż (tak/nie): ");
+        String value17 = verification.trueFalse("Tabliczka (tak/nie): ");
+        String value18 = verification.trueFalse("Kwiaty (tak/nie): ");
+        String value19 = verification.trueFalse("Przygotowanie zasiłku (tak/nie): ");
         System.out.print("Cena: ");
         String value20 = scanner.nextLine();
-        System.out.print("Status zlecenia: ");
-        String value21 = scanner.nextLine();
+        String value21 = verification.openClosed("Status zlecenia (otwarte/zamknięte): ");
 
         String zapytanie = "INSERT INTO `pogrzeb`(`personalia_czlonka_rodziny`, `nr_tel_czlonka_rodziny`, `adres_czlonka_rodziny`, `personalia_denata`, `data_urodzenia`, `data_smierci`, `wiek`, `data_pogrzebu`, `godzina_pogrzebu`, `miejsce_pochowku`, `trumna`, `rodzaj_trumny_urny`, `ilosc_osob_na_obsludze`, `jaki_karawan`, `krzyz`, `tabliczka`, `kwiaty`, `przygotowanie_zasilku`, `cena`, `status_zlecenia`) VALUES ('"+value2+"','"+value3+"','"+value4+"','"+value5+"','"+value6+"','"+value7+"','"+value8+"','"+value9+"','"+value10+"','"+value11+"','"+value12+"','"+value13+"','"+value14+"','"+value15+"','"+value16+"','"+value17+"','"+value18+"','"+value19+"','"+value20+"','"+value21+"')";
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie dodano do Bazy Danych");
+        System.out.println("Dodano usługe pogrzebową");
         System.out.println(" ");
     }
 
@@ -122,6 +117,9 @@ public class ceoFuneralServices {
 
         System.out.print("Podaj nr. pogrzebu: ");
         String value1 = scanner.nextLine();
+        System.out.println("---");
+        System.out.println("Schemat wprowadzania 'JKowalski'");
+        System.out.println("---");
         System.out.print("Kierownik/kierowca: ");
         String value2 = scanner.nextLine();
         System.out.print("1.Żałobnik: ");
@@ -143,7 +141,7 @@ public class ceoFuneralServices {
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie dodano obsługe do pogrzebu");
+        System.out.println("Dodano obsługe do pogrzebu");
         System.out.println(" ");
     }
 
@@ -276,14 +274,13 @@ public class ceoFuneralServices {
         System.out.print("Podaj id. pogrzebu: ");
         int idPogrzebu = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Podaj nowy status (otwarte/zamknięte): ");
-        String statusPogrzebu = scanner.nextLine();
+        String statusPogrzebu = verification.openClosed("Podaj nowy status (otwarte/zamknięte): ");
 
         String zapytanie = "UPDATE `pogrzeb` SET `status_zlecenia`='"+statusPogrzebu+"' WHERE `id_pogrzebu` = '"+idPogrzebu+"'";
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie zmieniono status pogrzebu");
+        System.out.println("Zmieniono status pogrzebu");
         System.out.println(" ");
     }
 }

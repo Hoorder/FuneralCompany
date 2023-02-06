@@ -14,16 +14,16 @@ public class ceo {
             System.out.println("Dzisiejsza data to: "+ today +"");
             System.out.println("Miłego dnia");
             System.out.println("-----------------------");
-            System.out.println(" ");
             System.out.println("-- Wybierz dział --");
+            System.out.println("-----------------------");
             System.out.println("1. Usługi pogrzebowe");
             System.out.println("2. Usługi kamieniarskie");
             System.out.println("3. Zarządzaj pracownikami");
             System.out.println("4. Sprawdź finanse");
             System.out.println("5. Ustawienia");
-            System.out.println();
+            System.out.println(" ");
             System.out.println("6. Wyloguj");
-            System.out.println();
+            System.out.println(" ");
             System.out.print("Wybierz opcje: ");
 
             int choice = scanner.nextInt();
@@ -173,7 +173,6 @@ public class ceo {
             System.out.println("3. Wszystkie zlecenia");
             System.out.println("4. Usuń zlecenie");
             System.out.println("5. Zmień status zlecenia");
-            // zmien status zlecenia
             System.out.println(" ");
             System.out.println("6. Wróć");
 

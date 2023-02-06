@@ -44,24 +44,21 @@ public class ceoStoneServices {
         String value7 = scanner.nextLine();
         System.out.print("Styl nagrobka: ");
         String value8 = scanner.nextLine();
-        System.out.print("Piwniczka: ");
-        String value9 = scanner.nextLine();
+        String value9 = verification.trueFalse("Piwniczka (tak/nie): ");
         System.out.print("Ilość osób: ");
         String value10 = scanner.nextLine();
-        System.out.print("Liternik: ");
-        String value11 = scanner.nextLine();
+        String value11 = verification.trueFalse("Liternik (tak/nie): ");
         System.out.print("Imię i nazwisko denata : ");
         String value12 = scanner.nextLine();
         System.out.print("Cena: ");
         String value13 = scanner.nextLine();
-        System.out.print("Status zlecenia: ");
-        String value14 = scanner.nextLine();
+        String value14 = verification.openClosed("Status zlecenia (otwarte/zamknięte): ");
 
         String zapytanie = "INSERT INTO `kamieniarstwo`(`kierownik_prac`, `personalia_klienta`, `do_pogrzebu`, `miejscowosc`, `data_oddania`, `nazwa_kamienia`, `styl_nagrobka`, `piwniczka`, `ilosc_osob`, `liternik`, `imie_nazwisko_denata`, `cena`, `status_zlecenia`) VALUES ('"+value2+"','"+value3+"','"+value4+"','"+value5+"','"+value6+"','"+value7+"','"+value8+"','"+value9+"','"+value10+"','"+value11+"','"+value12+"','"+value13+"','"+value14+"')";
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie dodano do Bazy Danych");
+        System.out.println("Dodano usługę kamieniarską");
         System.out.println(" ");
     }
 
@@ -166,14 +163,13 @@ public class ceoStoneServices {
         System.out.print("Podaj id. zlecenia: ");
         int idZlecenia = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Podaj nowy status (otwarte/zamknięte): ");
-        String statusZlecenia = scanner.nextLine();
+        String statusZlecenia = verification.openClosed("Status zlecenia (otwarte/zamknięte): ");
 
         String zapytanie = "UPDATE `kamieniarstwo` SET `status_zlecenia`='"+statusZlecenia+"' WHERE `id_zlecenia` = '"+idZlecenia+"'";
         queryExecutor.executeQuery(zapytanie);
 
         System.out.println(" ");
-        System.out.println("Pomyślnie zmieniono status zlecenia");
+        System.out.println("Zmieniono status zlecenia");
         System.out.println(" ");
     }
 }
